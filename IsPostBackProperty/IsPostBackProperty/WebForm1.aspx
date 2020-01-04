@@ -37,20 +37,25 @@
         <table style="width: 296px">
             <tr>
                 <td class="style1" colspan="2">
-                    Employee Details</td>
+                    Employee Details<br />
+                    <br />
+                    Please hover on FirstName,LastName Textbox<br />
+                </td>
             </tr>
             <tr>
                 <td class="style2">
                     First Name:</td>
                 <td class="style5">
-                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBox1" runat="server" Rows="2" TextMode="MultiLine" 
+                        ToolTip="TextMode(MultiLine);Rows(2)"></asp:TextBox>
                 </td>
             </tr>
             <tr>
                 <td class="style6">
                     Last Name:</td>
                 <td class="style4">
-                    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="TextBox2" runat="server" MaxLength="16" TextMode="Password" 
+                        ToolTip="maxLength(16);TextMode(Password)"></asp:TextBox>
                 </td>
             </tr>
             <tr>
