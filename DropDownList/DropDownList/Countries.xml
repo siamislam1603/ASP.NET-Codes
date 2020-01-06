@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Countries>
+  <Country>
+    <CountryId>201</CountryId>
+    <CountryName>Bangladesh</CountryName>
+  </Country>
+  <Country>
+    <CountryId>202</CountryId>
+    <CountryName>England</CountryName>
+  </Country>
+  <Country>
+    <CountryId>203</CountryId>
+    <CountryName>Germany</CountryName>
+  </Country>
+</Countries>
