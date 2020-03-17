@@ -1,0 +1,32 @@
+﻿@model ViewModels.ViewModels.RandomMovieViewModel
+@{
+    ViewBag.Title = "CustomersList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (Model.customers.Count == 0)
+{
+    <p>No customers have rented!!</p>
+}
+else
+{
+    <h1>Customers</h1>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th scope="col">Customer</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Model.customers)
+            {
+                <tr>
+                    <td>
+                        @Html.ActionLink(customer.name, "Details", "Movies", new { id = customer.id }, null)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+
