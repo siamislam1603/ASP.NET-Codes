@@ -10,27 +10,28 @@ namespace ViewModels.Controllers
 {
     public class MoviesController : Controller
     {
+        private MyDBContext context;
         // GET: Movies
+        public MoviesController()
+        {
+            context = new MyDBContext();
+        }
+        protected override void Dispose(bool disposing)
+        {
+            context.Dispose();
+        }
         public ActionResult MoviesList()
         {
-            var list = new List<Movie>
-            {
-                new Movie{id=1,name="Avengers"},
-                new Movie{id=2,name="Thor"}
-            };
+            var list = context.Movies.ToList();
             var viewModel = new RandomMovieViewModel
             {
-                movie=list
+                movie = list
             };
             return View(viewModel);
         }
         public ActionResult CustomersList()
         {
-            var list = new List<Customer>
-            {
-                new Customer{id=1,name="Customer1"},
-                new Customer{id=2,name="Customer2"}
-            };
+            var list = context.Customers.ToList();
             var viewModel = new RandomMovieViewModel
             {
                 customers = list
@@ -39,7 +40,7 @@ namespace ViewModels.Controllers
         }
         public ActionResult Details(int id)
         {
-            var customer = GetCustomer().SingleOrDefault(c => c.id == id);
+            var customer = context.Customers.SingleOrDefault(c => c.id == id);
             if (customer == null)
                 return HttpNotFound();
 
