@@ -90,3 +90,4 @@ F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.Migrations.InitialModel.resources
 F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.csproj.GenerateResource.cache
 F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.Migrations.AddIsSubscribedToCustomer.resources
 F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.Migrations.AddMembershipType.resources
+F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.Migrations.PopulateMembershipTypes.resources
