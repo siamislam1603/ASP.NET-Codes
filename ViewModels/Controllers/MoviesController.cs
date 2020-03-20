@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using ViewModels.Models;
 using ViewModels.ViewModels;
+using System.Data.Entity;
 
 namespace ViewModels.Controllers
 {
@@ -31,7 +32,7 @@ namespace ViewModels.Controllers
         }
         public ActionResult CustomersList()
         {
-            var list = context.Customers.ToList();
+            var list = context.Customers.Include(c => c.membershipType).ToList();
             var viewModel = new RandomMovieViewModel
             {
                 customers = list
