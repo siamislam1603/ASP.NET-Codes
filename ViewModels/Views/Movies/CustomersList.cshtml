@@ -16,6 +16,7 @@ else
             <tr>
                 <th scope="col">Customer</th>
                 <th scope="col">Discount Rate</th>
+                <th scope="col">Membership Type</th>
             </tr>
         </thead>
         <tbody>
@@ -28,6 +29,10 @@ else
                     <td>
                         @customer.membershipType.discountRate%
                     </td>
+                    <td>
+                        @customer.membershipType.name
+                    </td>
+
                 </tr>
             }
         </tbody>

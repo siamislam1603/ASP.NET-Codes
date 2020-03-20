@@ -93,3 +93,5 @@ F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.Migrations.AddMembershipType.reso
 F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.Migrations.PopulateMembershipTypes.resources
 F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.Migrations.ApplyAnnotationsToCustomerName.resources
 F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.Migrations.CustomerIsAssocitedtoMembershipTypeId.resources
+F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.Migrations.AddNameToMembershipType.resources
+F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.Migrations.UpdateMembershipType.resources
