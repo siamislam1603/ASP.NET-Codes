@@ -41,7 +41,7 @@ namespace ViewModels.Controllers
         }
         public ActionResult Details(int id)
         {
-            var customer = context.Customers.SingleOrDefault(c => c.id == id);
+            var customer = context.Customers.Include(c => c.membershipType).SingleOrDefault(c => c.id == id);
             if (customer == null)
                 return HttpNotFound();
 

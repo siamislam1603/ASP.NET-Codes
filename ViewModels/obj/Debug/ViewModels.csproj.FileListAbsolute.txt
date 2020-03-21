@@ -85,7 +85,6 @@ F:\3.2\ASP.NET\ViewModels\bin\System.Web.Http.WebHost.dll
 F:\3.2\ASP.NET\ViewModels\bin\System.Net.Http.Formatting.xml
 F:\3.2\ASP.NET\ViewModels\bin\System.Web.Http.xml
 F:\3.2\ASP.NET\ViewModels\bin\System.Web.Http.WebHost.xml
-F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.csprojAssemblyReference.cache
 F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.Migrations.InitialModel.resources
 F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.csproj.GenerateResource.cache
 F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.Migrations.AddIsSubscribedToCustomer.resources
@@ -95,3 +94,6 @@ F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.Migrations.ApplyAnnotationsToCust
 F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.Migrations.CustomerIsAssocitedtoMembershipTypeId.resources
 F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.Migrations.AddNameToMembershipType.resources
 F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.Migrations.UpdateMembershipType.resources
+F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.csprojAssemblyReference.cache
+F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.Migrations.AddBirthDateToCustomers.resources
+F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.Migrations.PopulateBirthdate.resources
