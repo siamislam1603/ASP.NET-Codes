@@ -97,3 +97,7 @@ F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.Migrations.UpdateMembershipType.r
 F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.csprojAssemblyReference.cache
 F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.Migrations.AddBirthDateToCustomers.resources
 F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.Migrations.PopulateBirthdate.resources
+F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.Migrations.AddGenre.resources
+F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.Migrations.PopulateGenre.resources
+F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.Migrations.AddMoviesMoreInfo.resources
+F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.Migrations.PopulateMoviesMoreInfo.resources

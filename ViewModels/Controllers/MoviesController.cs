@@ -23,7 +23,7 @@ namespace ViewModels.Controllers
         }
         public ActionResult MoviesList()
         {
-            var list = context.Movies.ToList();
+            var list = context.Movies.Include(c=>c.genre).ToList();
             var viewModel = new RandomMovieViewModel
             {
                 movie = list
@@ -46,6 +46,14 @@ namespace ViewModels.Controllers
                 return HttpNotFound();
 
             return View(customer);
+        }
+        public ActionResult MovieDetails(int id)
+        {
+            var movie = context.Movies.Include(c => c.genre).SingleOrDefault(c => c.id == id);
+            if (movie == null)
+                return HttpNotFound();
+
+            return View(movie);
         }
         private IEnumerable<Customer> GetCustomer()
         {
