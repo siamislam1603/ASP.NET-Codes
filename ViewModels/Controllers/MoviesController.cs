@@ -55,6 +55,9 @@ namespace ViewModels.Controllers
 
             return View(movie);
         }
+        public ActionResult NewCustomer() {
+            return View();
+        }
         private IEnumerable<Customer> GetCustomer()
         {
             return new List<Customer>

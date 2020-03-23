@@ -249,6 +249,7 @@
     <Content Include="Views\Movies\CustomersList.cshtml" />
     <Content Include="Views\Movies\Details.cshtml" />
     <Content Include="Views\Movies\MovieDetails.cshtml" />
+    <Content Include="Views\Movies\NewCustomer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
