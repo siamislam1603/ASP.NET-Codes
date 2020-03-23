@@ -14,6 +14,7 @@ namespace ViewModels.Models
         public string name { get; set; }
         public bool IsSubscribedToNewsLetter { get; set; }
         [DataType(DataType.Date)]
+        [Display(Name ="Date Of Birth")]
         public Nullable<DateTime> birthdate { get; set; }
         public MembershipType membershipType { get; set; }
         public byte membershipTypeId { get; set; }
