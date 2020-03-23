@@ -56,7 +56,12 @@ namespace ViewModels.Controllers
             return View(movie);
         }
         public ActionResult NewCustomer() {
-            return View();
+            var membershipType = context.MembershipTypes.ToList();
+            var viewModel = new NewCustomerViewModel
+            {
+                membershiptype=membershipType
+            };
+            return View(viewModel);
         }
         private IEnumerable<Customer> GetCustomer()
         {
