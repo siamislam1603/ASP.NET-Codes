@@ -55,13 +55,30 @@ namespace ViewModels.Controllers
 
             return View(movie);
         }
-        public ActionResult NewCustomer() {
+        public ActionResult CustomerForm() {
             var membershipType = context.MembershipTypes.ToList();
-            var viewModel = new NewCustomerViewModel
+            var viewModel = new CustomerFormViewModel
             {
                 membershiptype=membershipType
             };
             return View(viewModel);
+        }
+        [HttpPost]
+        public ActionResult Create(CustomerFormViewModel newCustomer) {
+            context.Customers.Add(newCustomer.customer);
+            context.SaveChanges();
+            return RedirectToAction("CustomersList", "Movies");
+        }
+        public ActionResult EditCustomerInfo(int id) {
+            var customer = context.Customers.SingleOrDefault(c => c.id == id);
+            if (customer == null)
+                return HttpNotFound();
+            var viewModel = new CustomerFormViewModel
+            {
+                customer = customer,
+                membershiptype = context.MembershipTypes.ToList()
+            };
+            return View("CustomerForm",viewModel);
         }
         private IEnumerable<Customer> GetCustomer()
         {
