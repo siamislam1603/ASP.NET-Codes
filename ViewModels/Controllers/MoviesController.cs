@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using ViewModels.Models;
 using ViewModels.ViewModels;
 using System.Data.Entity;
+using System.Data.Entity.Validation;
 
 namespace ViewModels.Controllers
 {
@@ -55,6 +56,43 @@ namespace ViewModels.Controllers
 
             return View(movie);
         }
+        public ActionResult MoviesForm() {
+            var genre = context.Genres.ToList();
+            var viewModel = new MoviesFormViewModel
+            {
+                genre=genre
+            };
+            return View(viewModel);
+        }
+        [HttpPost]
+        public ActionResult SaveMovie(Movie movie) {
+            if (movie.id == 0)
+            {
+                movie.AddedDate = DateTime.Now;
+                context.Movies.Add(movie);
+            }
+            else
+            {
+                var movieInDb = context.Movies.Single(m => m.id == movie.id);
+                movieInDb.name = movie.name;
+                movieInDb.ReleaseDate = movie.ReleaseDate;
+                movieInDb.NoInStock = movie.NoInStock;
+                movieInDb.genreId = movie.genreId;
+            }
+            context.SaveChanges();
+            return RedirectToAction("MoviesList","Movies");
+        }
+        public ActionResult EditMovieInfo(int id)
+        {
+            var movie = context.Movies.SingleOrDefault(m => m.id == id);
+            var viewModel = new MoviesFormViewModel
+            {
+                movie=movie,
+                genre=context.Genres.ToList()
+            };
+            return View("MoviesForm",viewModel);
+        }
+
         public ActionResult CustomerForm() {
             var membershipType = context.MembershipTypes.ToList();
             var viewModel = new CustomerFormViewModel
@@ -88,14 +126,6 @@ namespace ViewModels.Controllers
                 membershiptype = context.MembershipTypes.ToList()
             };
             return View("CustomerForm",viewModel);
-        }
-        private IEnumerable<Customer> GetCustomer()
-        {
-            return new List<Customer>
-            {
-                new Customer { id = 1, name = "Customer1" },
-                new Customer { id = 2, name = "Customer2" }
-            };
         }
     }
 }

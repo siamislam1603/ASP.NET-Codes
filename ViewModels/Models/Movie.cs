@@ -9,13 +9,18 @@ namespace ViewModels.Models
     public class Movie
     {
         public int id { get; set; }
+        [Display(Name ="Name")]
         public string name { get; set; }
         [DataType(DataType.Date)]
+        [Display(Name = "Released Date")]
         public DateTime ReleaseDate { get; set; }
         [DataType(DataType.Date)]
         public DateTime AddedDate { get; set; }
+        [Display(Name = "Number In Stock")]
         public int NoInStock { get; set; }
         public Genre genre { get; set; }
+        [Required]
+        [Display(Name = "Genre")]
         public byte genreId { get; set; }
     }
 }
