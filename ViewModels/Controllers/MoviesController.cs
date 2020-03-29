@@ -64,8 +64,17 @@ namespace ViewModels.Controllers
             return View(viewModel);
         }
         [HttpPost]
-        public ActionResult Create(CustomerFormViewModel newCustomer) {
-            context.Customers.Add(newCustomer.customer);
+        public ActionResult Save(CustomerFormViewModel newCustomer) {
+            if(newCustomer.customer.id==0)
+                context.Customers.Add(newCustomer.customer);
+            else
+            {
+                var customerInDb = context.Customers.Single(c => c.id == newCustomer.customer.id);
+                customerInDb.name = newCustomer.customer.name;
+                customerInDb.birthdate = newCustomer.customer.birthdate;
+                customerInDb.membershipTypeId = newCustomer.customer.membershipTypeId;
+                customerInDb.IsSubscribedToNewsLetter = newCustomer.customer.IsSubscribedToNewsLetter;
+            }
             context.SaveChanges();
             return RedirectToAction("CustomersList", "Movies");
         }

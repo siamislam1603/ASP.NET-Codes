@@ -3,7 +3,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 <h1>New Customer</h1>
-@using (Html.BeginForm("Create", "Movies"))
+@using (Html.BeginForm("Save", "Movies"))
 {
     <div class="form-group">
         @Html.LabelFor(c => c.customer.name)
@@ -22,6 +22,7 @@
         @Html.CheckBoxFor(c => c.customer.IsSubscribedToNewsLetter, new { @class = "form-check-input" })
         Subscribed to news letter?
     </div>
+    @Html.HiddenFor(c=>c.customer.id)
     <button type="submit" class="btn btn-primary">Save</button>
 }
 
