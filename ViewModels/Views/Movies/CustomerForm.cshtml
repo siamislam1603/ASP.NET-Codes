@@ -18,6 +18,7 @@
     <div class="form-group">
         @Html.LabelFor(c => c.customer.membershipTypeId)
         @Html.DropDownListFor(c => c.customer.membershipTypeId, new SelectList(Model.membershiptype, "id", "name"), "Select membership type", new { @class = "form-control" })
+        @Html.ValidationMessageFor(c=>c.customer.membershipTypeId)
     </div>
     <div class="form-check">
         @Html.CheckBoxFor(c => c.customer.IsSubscribedToNewsLetter, new { @class = "form-check-input" })
