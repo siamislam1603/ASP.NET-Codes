@@ -103,6 +103,7 @@ namespace ViewModels.Controllers
             return View(viewModel);
         }
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Save(CustomerFormViewModel newCustomer) {
             if (!ModelState.IsValid)
             {
