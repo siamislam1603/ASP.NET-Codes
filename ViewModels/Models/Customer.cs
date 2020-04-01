@@ -16,6 +16,7 @@ namespace ViewModels.Models
         public bool IsSubscribedToNewsLetter { get; set; }
         [DataType(DataType.Date)]
         [Display(Name ="Date Of Birth")]
+        [Min18YearsIfAMember]
         public Nullable<DateTime> birthdate { get; set; }
         public MembershipType membershipType { get; set; }
         [Display(Name ="Membership Type")]
