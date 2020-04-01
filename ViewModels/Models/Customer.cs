@@ -9,7 +9,7 @@ namespace ViewModels.Models
     public class Customer
     {
         public int id { get; set; }
-        [Required]
+        [Required(ErrorMessage ="Please Enter your name.")]
         [StringLength(255)]
         [Display(Name ="Name")]
         public string name { get; set; }
