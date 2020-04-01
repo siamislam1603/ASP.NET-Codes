@@ -103,6 +103,15 @@ namespace ViewModels.Controllers
         }
         [HttpPost]
         public ActionResult Save(CustomerFormViewModel newCustomer) {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new CustomerFormViewModel
+                {
+                    customer = newCustomer.customer,
+                    membershiptype = context.MembershipTypes.ToList()
+                };
+                return View("CustomerForm", viewModel);
+            }
             if(newCustomer.customer.id==0)
                 context.Customers.Add(newCustomer.customer);
             else

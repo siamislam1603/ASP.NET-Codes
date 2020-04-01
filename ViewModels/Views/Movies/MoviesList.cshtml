@@ -11,6 +11,7 @@
     var className = Model.movie.Count > 0 ? "Popular" : null;
 }
 <h1 class="@className">Movies</h1>
+@Html.ActionLink("Add Movie", "MoviesForm","Movies", null, new { @class="btn btn-primary mb-2"})
 <table class="table table-bordered">
     <thead>
         <tr>

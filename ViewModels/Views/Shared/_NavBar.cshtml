@@ -1,19 +1,14 @@
-﻿<div class="navbar navbar-inverse navbar-fixed-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            @Html.ActionLink("Siam", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-        </div>
-        <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li>@Html.ActionLink("Movies", "MoviesList", "Movies")</li>
-                <li>@Html.ActionLink("Customers", "CustomersList", "Movies")</li>
-                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-            </ul>
-        </div>
+﻿<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-fixed-top">
+    @Html.ActionLink("Siam", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarColor03">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">@Html.ActionLink("Movies", "MoviesList", "Movies",null,new { @class = "nav-link" })</li>
+            <li class="nav-item">@Html.ActionLink("Customers", "CustomersList", "Movies",null,new { @class = "nav-link" })</li>
+            <li class="nav-item">@Html.ActionLink("Contact", "Contact", "Home",null,new { @class = "nav-link" })</li>
+        </ul>
     </div>
-</div>
+</nav>

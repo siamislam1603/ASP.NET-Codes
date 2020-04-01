@@ -3,39 +3,40 @@
     ViewBag.Title = "CustomersList";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<h1>Customers</h1>
+@Html.ActionLink("Add Customer", "CustomerForm", "Movies", null,new { @class="btn btn-primary mb-2"})
 @if (Model.customers.Count == 0)
 {
     <p>No customers have rented!!</p>
 }
 else
 {
-    <h1>Customers</h1>
-    <table class="table table-bordered">
-        <thead>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th scope="col">Customer</th>
+            <th scope="col">Discount Rate</th>
+            <th scope="col">Membership Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var customer in Model.customers)
+        {
             <tr>
-                <th scope="col">Customer</th>
-                <th scope="col">Discount Rate</th>
-                <th scope="col">Membership Type</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var customer in Model.customers)
-            {
-                <tr>
-                    <td>
-                        @Html.ActionLink(customer.name, "EditCustomerInfo", "Movies", new { id = customer.id }, null)
-                    </td>
-                    <td>
-                        @customer.membershipType.discountRate%
-                    </td>
-                    <td>
-                        @customer.membershipType.name
-                    </td>
+                <td>
+                    @Html.ActionLink(customer.name, "EditCustomerInfo", "Movies", new { id = customer.id }, null)
+                </td>
+                <td>
+                    @customer.membershipType.discountRate%
+                </td>
+                <td>
+                    @customer.membershipType.name
+                </td>
 
-                </tr>
-            }
-        </tbody>
-    </table>
+            </tr>
+        }
+    </tbody>
+</table>
 }
+
 
