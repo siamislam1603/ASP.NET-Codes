@@ -97,6 +97,7 @@ namespace ViewModels.Controllers
             var membershipType = context.MembershipTypes.ToList();
             var viewModel = new CustomerFormViewModel
             {
+                customer=new Customer(),
                 membershiptype=membershipType
             };
             return View(viewModel);
