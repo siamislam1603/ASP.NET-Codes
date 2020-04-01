@@ -14,5 +14,6 @@ namespace ViewModels.Models
         public short signUpFee { get; set; }
         public short durationInMonths { get; set; }
         public short discountRate { get; set; }
+        public static readonly byte Unknown = 0, PayAsGo = 1;
     }
 }

@@ -11,7 +11,7 @@ namespace ViewModels.Models
         protected override ValidationResult IsValid(object value, ValidationContext validationContext)
         {
             var customer = (Customer)validationContext.ObjectInstance;
-            if (customer.membershipTypeId == 0 || customer.membershipTypeId == 1)
+            if (customer.membershipTypeId == MembershipType.Unknown || customer.membershipTypeId == MembershipType.PayAsGo)
                 return ValidationResult.Success;
             if (customer.birthdate == null)
                 return new ValidationResult("Birthdate is required.");
