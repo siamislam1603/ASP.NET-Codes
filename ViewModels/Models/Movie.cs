@@ -10,6 +10,8 @@ namespace ViewModels.Models
     {
         public int id { get; set; }
         [Display(Name ="Name")]
+        [StringLength(255)]
+        [Required]
         public string name { get; set; }
         [DataType(DataType.Date)]
         [Display(Name = "Released Date")]
@@ -17,6 +19,8 @@ namespace ViewModels.Models
         [DataType(DataType.Date)]
         public DateTime AddedDate { get; set; }
         [Display(Name = "Number In Stock")]
+        [Range(1,20)]
+        [Required]
         public int NoInStock { get; set; }
         public Genre genre { get; set; }
         [Required]

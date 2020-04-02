@@ -160,7 +160,7 @@
       <DependentUpon>202003181521119_PopulateMembershipTypes.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202003181557390_ApplyAnnotationsToCustomerName.cs" />
-    <Compile Include="Migrations\202003181557390_ApplyAnnotationsToCustomerName.designer.cs">
+    <Compile Include="Migrations\202003181557390_ApplyAnnotationsToCustomerName.Designer.cs">
       <DependentUpon>202003181557390_ApplyAnnotationsToCustomerName.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\202003181604446_CustomerIsAssocitedtoMembershipTypeId.cs" />
@@ -198,6 +198,10 @@
     <Compile Include="Migrations\202003221445586_PopulateMoviesMoreInfo.cs" />
     <Compile Include="Migrations\202003221445586_PopulateMoviesMoreInfo.designer.cs">
       <DependentUpon>202003221445586_PopulateMoviesMoreInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004021501286_ApplyAnnotationToMovie.cs" />
+    <Compile Include="Migrations\202004021501286_ApplyAnnotationToMovie.designer.cs">
+      <DependentUpon>202004021501286_ApplyAnnotationToMovie.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Customer.cs" />
@@ -317,6 +321,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202003221445586_PopulateMoviesMoreInfo.resx">
       <DependentUpon>202003221445586_PopulateMoviesMoreInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004021501286_ApplyAnnotationToMovie.resx">
+      <DependentUpon>202004021501286_ApplyAnnotationToMovie.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

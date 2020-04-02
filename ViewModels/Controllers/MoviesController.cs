@@ -60,12 +60,27 @@ namespace ViewModels.Controllers
             var genre = context.Genres.ToList();
             var viewModel = new MoviesFormViewModel
             {
+                movie=new Movie
+                {
+                    id=0,
+                    ReleaseDate=DateTime.Now,
+                    NoInStock=0
+                },
                 genre=genre
             };
             return View(viewModel);
         }
         [HttpPost]
         public ActionResult SaveMovie(Movie movie) {
+            if (!ModelState.IsValid)
+            {
+                var viewModel = new MoviesFormViewModel
+                {
+                    movie = movie,
+                    genre = context.Genres.ToList()
+                };
+                return View("MoviesForm", viewModel);
+            }
             if (movie.id == 0)
             {
                 movie.AddedDate = DateTime.Now;

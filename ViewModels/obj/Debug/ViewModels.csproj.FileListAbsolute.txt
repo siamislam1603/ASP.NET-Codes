@@ -90,7 +90,6 @@ F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.csproj.GenerateResource.cache
 F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.Migrations.AddIsSubscribedToCustomer.resources
 F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.Migrations.AddMembershipType.resources
 F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.Migrations.PopulateMembershipTypes.resources
-F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.Migrations.ApplyAnnotationsToCustomerName.resources
 F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.Migrations.CustomerIsAssocitedtoMembershipTypeId.resources
 F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.Migrations.AddNameToMembershipType.resources
 F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.Migrations.UpdateMembershipType.resources
@@ -101,3 +100,5 @@ F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.Migrations.AddGenre.resources
 F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.Migrations.PopulateGenre.resources
 F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.Migrations.AddMoviesMoreInfo.resources
 F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.Migrations.PopulateMoviesMoreInfo.resources
+F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.Migrations.ApplyAnnotationToMovie.resources
+F:\3.2\ASP.NET\ViewModels\obj\Debug\ViewModels.Migrations.ApplyAnnotationsToCustomerName.resources
