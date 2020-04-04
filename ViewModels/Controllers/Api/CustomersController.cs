@@ -62,13 +62,14 @@ namespace ViewModels.Controllers.Api
         }
         //DELETE /api/customer/1
         [HttpDelete]
-        public void deleteCustomer(int id)
+        public IHttpActionResult deleteCustomer(int id)
         {
             var customer = context.Customers.SingleOrDefault(c => c.id == id);
             if (customer == null)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                return NotFound();
             context.Customers.Remove(customer);
             context.SaveChanges();
+            return Ok();
         }
     }
 }
