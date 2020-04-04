@@ -1,9 +1,11 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using ViewModels.Dtos;
 using ViewModels.Models;
 
 namespace ViewModels.Controllers.Api
@@ -16,34 +18,36 @@ namespace ViewModels.Controllers.Api
             context = new MyDBContext();
         }
         //GET /api/customers
-        public IEnumerable<Customer> GetCustomers()
+        public IEnumerable<CustomerDto> GetCustomers()
         {
-            return context.Customers.ToList();
+            return context.Customers.ToList().Select(Mapper.Map<Customer,CustomerDto>);
         }
 
         //GET /api/Customer/1
-        public Customer GetCustomer(int id)
+        public CustomerDto GetCustomer(int id)
         {
             var customer = context.Customers.SingleOrDefault(c => c.id == id);
             if (customer == null)
                 throw new HttpResponseException(HttpStatusCode.NotFound);
-            return customer;
+            return Mapper.Map<Customer, CustomerDto>(customer);
         }
         //POST /api/customers
         [HttpPost]
-        public Customer CreateCustomer(Customer customer)
+        public CustomerDto CreateCustomer(CustomerDto customerDto)
         {
             if (!ModelState.IsValid)
             {
                 throw new HttpResponseException(HttpStatusCode.BadRequest);
             }
+            var customer = Mapper.Map<CustomerDto, Customer>(customerDto);
             context.Customers.Add(customer);
             context.SaveChanges();
-            return customer;
+            customerDto.id = customer.id;
+            return customerDto;
         }
         //PUT /api/customer/1
         [HttpPut]
-        public void UpdateCustomer(int id,Customer customer)
+        public void UpdateCustomer(int id,CustomerDto customerDto)
         {
             if (!ModelState.IsValid)
             {
@@ -52,10 +56,7 @@ namespace ViewModels.Controllers.Api
             var customerInDb = context.Customers.SingleOrDefault(c => c.id == id);
             if (customerInDb == null)
                 throw new HttpResponseException(HttpStatusCode.NotFound);
-            customerInDb.name = customer.name;
-            customerInDb.IsSubscribedToNewsLetter = customer.IsSubscribedToNewsLetter;
-            customerInDb.membershipTypeId = customer.membershipTypeId;
-            customerInDb.birthdate = customer.birthdate;
+            Mapper.Map(customerDto, customerInDb);
             context.SaveChanges();
         }
         //DELETE /api/customer/1
