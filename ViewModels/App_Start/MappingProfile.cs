@@ -13,7 +13,8 @@ namespace ViewModels.App_Start
         public MappingProfile()
         {
             Mapper.CreateMap<Customer, CustomerDto>();
-            Mapper.CreateMap<CustomerDto, Customer>();
+            Mapper.CreateMap<CustomerDto, Customer>()
+                .ForMember(c=>c.id,opt=>opt.Ignore());
         }
     }
 }

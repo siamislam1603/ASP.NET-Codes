@@ -24,40 +24,41 @@ namespace ViewModels.Controllers.Api
         }
 
         //GET /api/Customer/1
-        public CustomerDto GetCustomer(int id)
+        public IHttpActionResult GetCustomer(int id)
         {
             var customer = context.Customers.SingleOrDefault(c => c.id == id);
             if (customer == null)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
-            return Mapper.Map<Customer, CustomerDto>(customer);
+                return NotFound();
+            return Ok(Mapper.Map<Customer, CustomerDto>(customer));
         }
         //POST /api/customers
         [HttpPost]
-        public CustomerDto CreateCustomer(CustomerDto customerDto)
+        public IHttpActionResult CreateCustomer(CustomerDto customerDto)
         {
             if (!ModelState.IsValid)
             {
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                return BadRequest();
             }
             var customer = Mapper.Map<CustomerDto, Customer>(customerDto);
             context.Customers.Add(customer);
             context.SaveChanges();
             customerDto.id = customer.id;
-            return customerDto;
+            return Created(new Uri(Request.RequestUri+"/"+customer.id),customerDto);
         }
         //PUT /api/customer/1
         [HttpPut]
-        public void UpdateCustomer(int id,CustomerDto customerDto)
+        public IHttpActionResult UpdateCustomer(int id,CustomerDto customerDto)
         {
             if (!ModelState.IsValid)
             {
-                throw new HttpResponseException(HttpStatusCode.BadRequest);
+                return BadRequest();
             }
             var customerInDb = context.Customers.SingleOrDefault(c => c.id == id);
             if (customerInDb == null)
-                throw new HttpResponseException(HttpStatusCode.NotFound);
+                return NotFound();
             Mapper.Map(customerDto, customerInDb);
             context.SaveChanges();
+            return Ok();
         }
         //DELETE /api/customer/1
         [HttpDelete]
