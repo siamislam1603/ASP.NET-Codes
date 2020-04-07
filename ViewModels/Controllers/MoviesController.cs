@@ -33,12 +33,7 @@ namespace ViewModels.Controllers
         }
         public ActionResult CustomersList()
         {
-            var list = context.Customers.Include(c => c.membershipType).ToList();
-            var viewModel = new RandomMovieViewModel
-            {
-                customers = list
-            };
-            return View(viewModel);
+            return View();
         }
         public ActionResult Details(int id)
         {

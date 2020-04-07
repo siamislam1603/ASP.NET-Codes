@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using ViewModels.Dtos;
+using System.Data.Entity;
 using ViewModels.Models;
 
 namespace ViewModels.Controllers.Api
@@ -18,9 +19,13 @@ namespace ViewModels.Controllers.Api
             context = new MyDBContext();
         }
         //GET /api/customers
-        public IEnumerable<CustomerDto> GetCustomers()
+        public IHttpActionResult GetCustomers()
         {
-            return context.Customers.ToList().Select(Mapper.Map<Customer,CustomerDto>);
+            var customerDto= context.Customers
+                .Include(c=>c.membershipType)
+                .ToList()
+                .Select(Mapper.Map<Customer,CustomerDto>);
+            return Ok(customerDto);
         }
 
         //GET /api/Customer/1

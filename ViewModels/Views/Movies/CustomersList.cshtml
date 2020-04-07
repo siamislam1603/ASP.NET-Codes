@@ -5,47 +5,44 @@
 }
 <h1>Customers</h1>
 @Html.ActionLink("Add Customer", "CustomerForm", "Movies", null,new { @class="btn btn-primary mb-2"})
-@if (Model.customers.Count == 0)
-{
-    <p>No customers have rented!!</p>
-}
-else
-{
 <table id="customers" class="table table-bordered">
     <thead>
         <tr>
             <th scope="col">Customer</th>
-            <th scope="col">Discount Rate</th>
             <th scope="col">Membership Type</th>
-            <th scope="col">Delete</th>   
+            <th scope="col">Delete</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var customer in Model.customers)
-        {
-            <tr>
-                <td>
-                    @Html.ActionLink(customer.name, "EditCustomerInfo", "Movies", new { id = customer.id }, null)
-                </td>
-                <td>
-                    @customer.membershipType.discountRate%
-                </td>
-                <td>
-                    @customer.membershipType.name
-                </td>
-                <td>
-                    <button data-customer-id="@customer.id" class="btn btn-link js-delete">Delete</button>
-                </td>
-            </tr>
-        }
     </tbody>
 </table>
-}
 @section scripts
 {
     <script>
         $(document).ready(function () {
-            $("#customers").DataTable();
+            $("#customers").DataTable({
+                ajax: {
+                    url: "/Api/Customers",
+                    dataSrc:""
+                },
+                columns:[
+                    {
+                        data: "name",
+                        render: function (data, type, customer) {
+                            return "<a href='/Movies/CustomerForm/" + customer.id + "'>" + data + "</a>";
+                        }
+                    }, 
+                    {
+                        data: "membershipType.name"
+                    },
+                    {
+                        data: "id",
+                        render: function (data) {
+                            return "<button class='btn btn-link js-delete' data-customer-id=" + data + ">Delete</button>";
+                        }
+                    }
+                ]
+            });
 
             $("#customers").on("click",".js-delete", function () {
                 var button = $(this);

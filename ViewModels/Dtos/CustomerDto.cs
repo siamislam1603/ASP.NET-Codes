@@ -17,6 +17,7 @@ namespace ViewModels.Dtos
         [DataType(DataType.Date)]
         //[Min18YearsIfAMember]
         public Nullable<DateTime> birthdate { get; set; }
+        public MembershipTypeDto membershipType { get; set; }
         public byte membershipTypeId { get; set; }
     }
 }
