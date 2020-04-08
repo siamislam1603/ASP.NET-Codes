@@ -7,29 +7,58 @@
     this is multiline
        comments
 *@
-@{
-    var className = Model.movie.Count > 0 ? "Popular" : null;
-}
-<h1 class="@className">Movies</h1>
+<h1>Movies</h1>
 @Html.ActionLink("Add Movie", "MoviesForm","Movies", null, new { @class="btn btn-primary mb-2"})
-<table class="table table-bordered">
+<table id="movie" class="table table-bordered">
     <thead>
         <tr>
             <th scope="col">Movie</th>
             <th scope="col">Genre</th>
+            <th scope="col">Delete</th>
         </tr>
     </thead>
     <tbody>
-        @foreach (var movies in Model.movie)
-        {
-            <tr>
-                <td>
-                    @Html.ActionLink(movies.name, "EditMovieInfo", "Movies", new { id = movies.id }, null)
-                </td>
-                <td>
-                    @movies.genre.genre
-                </td>
-            </tr>
-        }
     </tbody>
 </table>
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            var table=$("#movie").DataTable({
+                ajax: {
+                    url: "/Api/Movies",
+                    dataSrc:""
+                },
+                columns: [
+                    {
+                        data: "name",
+                        render: function (data, type, movie) {
+                            return "<a href='/Api/Movies/" + movie.data + "'>" + data + "</a>";
+                        }
+                    },
+                    {
+                        data:"genre.genre"
+                    },
+                    {
+                        data: "id",
+                        render: function (data) {
+                            return "<button class='btn btn-link js-delete' data-movie-id=" + data + ">Delete</a>";
+                        }
+                    }
+                ]
+            });
+            $("#movie").on("click", ".js-delete", function () {
+                var button = $(this);
+                if (confirm("Are you sure you want to delete this movie?")) {
+                    $.ajax({
+                        url: "/Api/Movies/" + button.attr("data-movie-id"),
+                        method: "DELETE",
+                        success: function () {
+                            table.row(button.parents("tr")).remove().draw();
+                        }
+                    });
+                }
+            });
+        });
+        
+    </script>
+}

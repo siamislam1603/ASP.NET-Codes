@@ -24,12 +24,7 @@ namespace ViewModels.Controllers
         }
         public ActionResult MoviesList()
         {
-            var list = context.Movies.Include(c=>c.genre).ToList();
-            var viewModel = new RandomMovieViewModel
-            {
-                movie = list
-            };
-            return View(viewModel);
+            return View();
         }
         public ActionResult CustomersList()
         {

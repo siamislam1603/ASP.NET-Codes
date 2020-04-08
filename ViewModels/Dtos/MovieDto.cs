@@ -20,6 +20,7 @@ namespace ViewModels.Dtos
         [Required]
         public int NoInStock { get; set; }
         [Required]
+        public GenreDto genre { get; set; }
         public byte genreId { get; set; }
     }
 }

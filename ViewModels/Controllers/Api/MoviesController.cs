@@ -7,6 +7,7 @@ using System.Net.Http;
 using System.Web.Http;
 using ViewModels.Dtos;
 using ViewModels.Models;
+using System.Data.Entity;
 
 namespace ViewModels.Controllers.Api
 {
@@ -18,9 +19,10 @@ namespace ViewModels.Controllers.Api
             context = new MyDBContext();
         }
         //GET /api/movies
-        public IEnumerable<MovieDto> GetMovies()
+        public IHttpActionResult GetMovies()
         {
-            return context.Movies.ToList().Select(Mapper.Map<Movie, MovieDto>);
+            var movie= context.Movies.Include(m=>m.genre).ToList().Select(Mapper.Map<Movie, MovieDto>);
+            return Ok(movie);
         }
 
         //GET /api/movie/1
