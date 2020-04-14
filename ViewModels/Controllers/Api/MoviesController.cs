@@ -13,10 +13,10 @@ namespace ViewModels.Controllers.Api
 {
     public class MoviesController : ApiController
     {
-        private MyDBContext context;
+        private ApplicationDbContext context;
         public MoviesController()
         {
-            context = new MyDBContext();
+            context = new ApplicationDbContext();
         }
         //GET /api/movies
         public IHttpActionResult GetMovies()

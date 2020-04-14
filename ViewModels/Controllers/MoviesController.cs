@@ -12,11 +12,11 @@ namespace ViewModels.Controllers
 {
     public class MoviesController : Controller
     {
-        private MyDBContext context;
+        private ApplicationDbContext context;
         // GET: Movies
         public MoviesController()
         {
-            context = new MyDBContext();
+            context = new ApplicationDbContext();
         }
         protected override void Dispose(bool disposing)
         {

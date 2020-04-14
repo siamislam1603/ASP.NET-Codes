@@ -13,18 +13,18 @@ namespace ViewModels.Controllers.Api
 {
     public class CustomersController : ApiController
     {
-        private MyDBContext context;
+        private ApplicationDbContext context;
         public CustomersController()
         {
-            context = new MyDBContext();
+            context = new ApplicationDbContext();
         }
         //GET /api/customers
         public IHttpActionResult GetCustomers()
         {
-            var customerDto= context.Customers
-                .Include(c=>c.membershipType)
+            var customerDto = context.Customers
+                .Include(c => c.membershipType)
                 .ToList()
-                .Select(Mapper.Map<Customer,CustomerDto>);
+                .Select(Mapper.Map<Customer, CustomerDto>);
             return Ok(customerDto);
         }
 
@@ -48,11 +48,11 @@ namespace ViewModels.Controllers.Api
             context.Customers.Add(customer);
             context.SaveChanges();
             customerDto.id = customer.id;
-            return Created(new Uri(Request.RequestUri+"/"+customer.id),customerDto);
+            return Created(new Uri(Request.RequestUri + "/" + customer.id), customerDto);
         }
         //PUT /api/customer/1
         [HttpPut]
-        public IHttpActionResult UpdateCustomer(int id,CustomerDto customerDto)
+        public IHttpActionResult UpdateCustomer(int id, CustomerDto customerDto)
         {
             if (!ModelState.IsValid)
             {
